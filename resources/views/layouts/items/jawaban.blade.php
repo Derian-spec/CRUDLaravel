@@ -3,15 +3,23 @@
 
 <div class="container mx-3 my-4">
 <div class="card px-3">
-  @foreach($jawaban as $jwb)
-  <table>
+<table class="table table-dark table-hover mt-2">
+  <thead>
     <tr>
-    <td>{{ $loop->iteration }}</td>
+      <th>Id</th>
+      <th>Jawaban</th>
+    </tr>
+  </thead>
+  @foreach($jawaban as $jwb)
+  <tbody>
+    <tr>
+      <td>{{ $loop->iteration }}</td>
       <td>{{ $jwb->isi }}</td>
     </tr>
+
+    @endforeach
+  </tbody>
   </table>
-  
-  @endforeach
 </div>
 </div>
 

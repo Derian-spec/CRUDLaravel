@@ -33,4 +33,10 @@ Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index'); //menampilkan
 
 Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store'); //menyimpan jawaban baru dari id tertentu
 
-// Route::get('/pertanyaan/{id}', 'PertanyaanController@show');
+Route::get('/pertanyaan/{id}', 'PertanyaanController@show'); //menampilkan detail pertanyaan (QnA)
+
+Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit');
+
+Route::put('/pertanyaan/{id}', 'PertanyaanController@update');
+
+Route::delete('/pertanyaan/{id}', 'PertanyaanController@delete');

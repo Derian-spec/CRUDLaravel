@@ -10,8 +10,11 @@
       <tr>
         <th>No</th>
         <th>Pertanyaan</th>
+        <th>Edit Pertanyaan</th>
         <th>Jawaban</th>
         <th>Form Jawaban</th>
+        <th>Detail QnA</th>
+        <th>Hapus</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +22,13 @@
       <tr>
         <td>{{ $loop->iteration }}</td>
         <td>{{ $pertanyaan->isi }}</td>
+
+        <td>
+          <a href=" {{ url('/pertanyaan/'. $pertanyaan->id. '/edit') }} ">
+            <button class="btn btn-warning">Edit Pertanyaan</button>
+          </a>
+        </td>
+
         <td>
           <a href=" {{ url('/jawaban/'. $pertanyaan->id) }} ">
             <button class="btn btn-info">Detail Jawaban</button>
@@ -40,6 +50,14 @@
           <a href=" {{ url('/pertanyaan/'. $pertanyaan->id) }} ">
             <button class="btn btn-primary">QnA</button>
           </a>
+        </td>
+
+        <td>
+          <form action="{{url('/pertanyaan/'. $pertanyaan->id)}}" method="POST">
+          @csrf
+          {{ method_field('delete') }}
+          <button type="submit" class="btn btn-danger">Hapus</button>
+          </form>
         </td>
 
         <!-- <td><a href=" {{ url('/jawaban'. $pertanyaan->id) }} ">
